@@ -1,5 +1,4 @@
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 
 public class Main {
@@ -9,6 +8,7 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = getPanel();
+        panel.add(getLabel());
         frame.add(panel);
 
         frame.setVisible(true);
@@ -18,5 +18,11 @@ public class Main {
         JPanel panel = new JPanel();
         panel.setBackground(Color.GRAY);
         return panel;
+    }
+
+    private static JLabel getLabel() {
+        JLabel label = new JLabel();
+        label.setText("Hello World");
+        return label;
     }
 }
