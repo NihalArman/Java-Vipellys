@@ -53,6 +53,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 String text = textField.getText().trim();
                 saveItems(text);
+                textField.setText("");
             }
         });
         return button;
