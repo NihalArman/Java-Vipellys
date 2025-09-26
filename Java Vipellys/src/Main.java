@@ -16,12 +16,14 @@ public class Main {
 
     private static JPanel initialPanel() {
         JPanel panel = new JPanel();
+        panel.setLayout(null);
         panel.setBackground(Color.GRAY);
         return panel;
     }
 
     private static JLabel titleLabel() {
         JLabel label = new JLabel();
+        label.setBounds(100, 0, 300, 20);
         label.setText("The best application in the world");
         return label;
     }
