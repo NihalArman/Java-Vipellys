@@ -1,8 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main {
     private DefaultListModel<String> items = new DefaultListModel<>();
+    private JTextField textField;
 
     public void main(String[] args) {
         JFrame frame = new JFrame();
@@ -35,7 +38,7 @@ public class Main {
     }
 
     private JTextField userInputTextField() {
-        JTextField textField = new JTextField();
+        textField = new JTextField();
         textField.setColumns(20);
         textField.setBounds(100, 50, 200, 30);
         return textField;
@@ -45,6 +48,13 @@ public class Main {
         JButton button = new JButton();
         button.setText("save");
         button.setBounds(140, 100, 120, 30);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String text = textField.getText();
+                saveItems(text);
+            }
+        });
         return button;
     }
 
