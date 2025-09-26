@@ -4,9 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class View {
-    private DefaultListModel<String> savedItems = new DefaultListModel<>();
-    private DefaultListModel<String> displayedItems = new DefaultListModel<>();
     private JTextField textField;
+    private ViewModel viewModel = new ViewModel();
 
     public void createUI() {
         JFrame frame = new JFrame();
@@ -53,7 +52,7 @@ public class View {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String text = textField.getText().trim();
-                saveItems(text);
+                viewModel.saveItems(text);
                 textField.setText("");
             }
         });
@@ -67,31 +66,15 @@ public class View {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateItems();
+                viewModel.updateItems();
             }
         });
         return button;
     }
 
     private JScrollPane displayItems() {
-        JScrollPane scrollPane = new JScrollPane(getItems());
+        JScrollPane scrollPane = new JScrollPane(viewModel.getItems());
         scrollPane.setBounds(60, 200, 400, 200);
         return scrollPane;
-    }
-
-    private JList<String> getItems() {
-        return new JList<>(this.displayedItems);
-    }
-
-    private void saveItems(String text) {
-        if (!text.isEmpty()) {
-            this.savedItems.addElement(text);
-        }
-    }
-
-    private void updateItems() {
-        for(int itemNumber = 0; itemNumber < savedItems.size(); itemNumber++) {
-            displayedItems.addElement(savedItems.getElementAt(itemNumber));
-        }
     }
 }
