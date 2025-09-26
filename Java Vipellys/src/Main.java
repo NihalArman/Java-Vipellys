@@ -12,6 +12,7 @@ public class Main {
         panel.add(userInputTextField());
         panel.add(saveButton());
         panel.add(displayItems());
+        panel.add(showButton());
         frame.add(panel);
 
         frame.setVisible(true);
@@ -42,6 +43,13 @@ public class Main {
         JButton button = new JButton();
         button.setText("save");
         button.setBounds(140, 100, 120, 30);
+        return button;
+    }
+
+    private static JButton showButton() {
+        JButton button = new JButton();
+        button.setText("show items");
+        button.setBounds(170, 420, 120, 30);
         return button;
     }
 
