@@ -11,6 +11,7 @@ public class Main {
         panel.add(titleLabel());
         panel.add(userInputTextField());
         panel.add(saveButton());
+        panel.add(displayItems());
         frame.add(panel);
 
         frame.setVisible(true);
@@ -42,5 +43,19 @@ public class Main {
         button.setText("save");
         button.setBounds(140, 100, 120, 30);
         return button;
+    }
+
+    private static JScrollPane displayItems() {
+        JScrollPane scrollPane = new JScrollPane(getItems());
+        scrollPane.setBounds(60, 200, 400, 200);
+        return scrollPane;
+    }
+
+    private static JList<String> getItems() {
+        DefaultListModel<String> items = new DefaultListModel<>();
+        items.addElement("Item1");
+        items.addElement("Item2");
+        items.addElement("Item3");
+        return new JList<>(items);
     }
 }
