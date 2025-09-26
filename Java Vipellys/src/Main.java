@@ -51,7 +51,7 @@ public class Main {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String text = textField.getText();
+                String text = textField.getText().trim();
                 saveItems(text);
             }
         });
