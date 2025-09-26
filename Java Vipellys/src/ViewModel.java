@@ -15,6 +15,7 @@ public class ViewModel {
     }
 
     public void updateItems() {
+        displayedItems.clear();
         for(int itemNumber = 0; itemNumber < savedItems.size(); itemNumber++) {
             displayedItems.addElement(savedItems.getElementAt(itemNumber));
         }
