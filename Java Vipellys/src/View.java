@@ -67,9 +67,7 @@ public class View {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(int itemNumber = 0; itemNumber < savedItems.size(); itemNumber++) {
-                    displayedItems.addElement(savedItems.getElementAt(itemNumber));
-                }
+                updateItems();
             }
         });
         return button;
@@ -88,6 +86,12 @@ public class View {
     private void saveItems(String text) {
         if (!text.isEmpty()) {
             this.savedItems.addElement(text);
+        }
+    }
+
+    private void updateItems() {
+        for(int itemNumber = 0; itemNumber < savedItems.size(); itemNumber++) {
+            displayedItems.addElement(savedItems.getElementAt(itemNumber));
         }
     }
 }
