@@ -9,6 +9,7 @@ public class Main {
 
         JPanel panel = initialPanel();
         panel.add(titleLabel());
+        panel.add(userInputTextField());
         frame.add(panel);
 
         frame.setVisible(true);
@@ -26,5 +27,12 @@ public class Main {
         label.setBounds(100, 0, 300, 20);
         label.setText("The best application in the world");
         return label;
+    }
+
+    private static JTextField userInputTextField() {
+        JTextField textField = new JTextField();
+        textField.setColumns(20);
+        textField.setBounds(100, 50, 200, 30);
+        return textField;
     }
 }
